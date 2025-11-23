@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternLink - Build Your Profile</title>
+    <link rel="stylesheet" href="../css/info-building.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="info-building">
+        <div class="form-wrapper">
+            <div class="info-container">
+                <h1>Build Your Internship Profile</h1>
+                <p>Create a strong profile to connect with global opportunities in Ethiopia.</p>
+                <form id="profileForm" class="profile-form">
+                    <!-- Personal Information -->
+                    <div class="section">
+                        <h2 class="section-title">1. Personal Information <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" required>
+                                    <span class="error" id="fullNameError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth *</label>
+                                    <input type="date" id="dateOfBirth" required>
+                                    <span class="error" id="dateOfBirthError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender *</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="gender" value="Male" required>Male</label>
+                                        <label><input type="radio" name="gender" value="Female">Female</label>
+                                        <label><input type="radio" name="gender" value="Other">Other</label>
+                                    </div>
+                                    <span class="error" id="genderError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationalId">National ID Number (optional)</label>
+                                    <input type="text" id="nationalId">
+                                    <span class="error" id="nationalIdError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationality">Nationality (default: Ethiopian)</label>
+                                    <input type="text" id="nationality" value="Ethiopian">
+                                    <span class="error" id="nationalityError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="region">Region / City / Woreda / Kebele *</label>
+                                    <input type="text" id="region" required>
+                                    <span class="error" id="regionError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number (with country code: +251) *</label>
+                                    <input type="tel" id="phone" placeholder="+251..." required>
+                                    <span class="error" id="phoneError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required>
+                                    <span class="error" id="emailError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn Profile (optional)</label>
+                                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                                    <span class="error" id="linkedinError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="github">GitHub / Portfolio Website (optional)</label>
+                                    <input type="url" id="github" placeholder="https://github.com/yourprofile">
+                                    <span class="error" id="githubError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Picture -->
+                    <div class="section">
+                        <h2 class="section-title">2. Profile Picture & Portfolio Images <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group image-upload-group">
+                                    <label for="profilePicture">Profile Picture (optional)</label>
+                                    <input type="file" id="profilePicture" accept="image/*">
+                                    <div class="image-preview" id="profilePicturePreview">
+                                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Default Profile Picture">
+                                    </div>
+                                    <span class="error" id="profilePictureError"></span>
+                                </div>
+                                <div class="form-group image-upload-group">
+                                    <label for="portfolioImages">Portfolio Images (optional, up to 3)</label>
+                                    <input type="file" id="portfolioImages" accept="image/*" multiple>
+                                    <div class="image-preview-gallery" id="portfolioImagesPreview">
+                                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Portfolio Image 1">
+                                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Portfolio Image 2">
+                                        <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Portfolio Image 3">
+                                    </div>
+                                    <span class="error" id="portfolioImagesError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Educational Background -->
+                    <div class="section">
+                        <h2 class="section-title">3. Educational Background <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="eduLevel">Current Educational Level *</label>
+                                    <select id="eduLevel" required>
+                                        <option value="">Select Level</option>
+                                        <option value="Diploma">Diploma</option>
+                                        <option value="Bachelor's">Bachelor's</option>
+                                        <option value="Master's">Master's</option>
+                                    </select>
+                                    <span class="error" id="eduLevelError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fieldOfStudy">Field of Study *</label>
+                                    <input type="text" id="fieldOfStudy" required>
+                                    <span class="error" id="fieldOfStudyError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="institution">Institution Name *</label>
+                                    <input type="text" id="institution" required>
+                                    <span class="error" id="institutionError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="department">Department *</label>
+                                    <input type="text" id="department" required>
+                                    <span class="error" id="departmentError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="yearOfStudy">Year of Study / Graduation Year *</label>
+                                    <input type="text" id="yearOfStudy" required>
+                                    <span class="error" id="yearOfStudyError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gpa">Cumulative GPA (if available)</label>
+                                    <input type="number" id="gpa" step="0.01" min="0" max="4.0">
+                                    <span class="error" id="gpaError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="relevantCourses">Relevant Courses Taken (optional)</label>
+                                    <input type="text" id="relevantCourses">
+                                    <span class="error" id="relevantCoursesError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="achievements">Academic Achievements / Honors (optional)</label>
+                                    <input type="text" id="achievements">
+                                    <span class="error" id="achievementsError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Internship Preferences -->
+                    <div class="section">
+                        <h2 class="section-title">4. Internship Preferences <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="preferredIndustry">Preferred Industry/Sector *</label>
+                                    <input type="text" id="preferredIndustry" required>
+                                    <span class="error" id="preferredIndustryError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferredRole">Preferred Role *</label>
+                                    <input type="text" id="preferredRole" required>
+                                    <span class="error" id="preferredRoleError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="preferredLocation">Preferred Location (city or remote) *</label>
+                                    <input type="text" id="preferredLocation" required>
+                                    <span class="error" id="preferredLocationError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="availability">Availability Period (Start & End Date) *</label>
+                                    <input type="text" id="availability" placeholder="e.g., 2025-06-01 to 2025-08-31" required>
+                                    <span class="error" id="availabilityError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Type: Full-time / Part-time / Remote / Hybrid *</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="type" value="Full-time" required>Full-time</label>
+                                        <label><input type="radio" name="type" value="Part-time">Part-time</label>
+                                        <label><input type="radio" name="type" value="Remote">Remote</label>
+                                        <label><input type="radio" name="type" value="Hybrid">Hybrid</label>
+                                    </div>
+                                    <span class="error" id="typeError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Willing to relocate? (Yes/No) *</label>
+                                    <div class="radio-group">
+                                        <label><input type="radio" name="relocate" value="Yes" required>Yes</label>
+                                        <label><input type="radio" name="relocate" value="No">No</label>
+                                    </div>
+                                    <span class="error" id="relocateError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="languages">Language Proficiency (e.g., Amharic, Afaan Oromo, English) *</label>
+                                    <input type="text" id="languages" required>
+                                    <span class="error" id="languagesError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Competencies -->
+                    <div class="section">
+                        <h2 class="section-title">5. Skills & Competencies <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="techSkills">Technical Skills (e.g., Java, Python) *</label>
+                                    <input type="text" id="techSkills" required>
+                                    <span class="error" id="techSkillsError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="softSkills">Soft Skills (e.g., Teamwork) *</label>
+                                    <input type="text" id="softSkills" required>
+                                    <span class="error" id="softSkillsError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tools">Tools/Platforms (e.g., Git) *</label>
+                                    <input type="text" id="tools" required>
+                                    <span class="error" id="toolsError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="certifications">Certifications (e.g., Cisco) *</label>
+                                    <input type="text" id="certifications" required>
+                                    <span class="error" id="certificationsError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="section">
+                        <h2 class="section-title">6. Experience <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="prevExperience">Previous Internship/Volunteer Experience *</label>
+                                    <input type="text" id="prevExperience" required>
+                                    <span class="error" id="prevExperienceError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projects">Projects (title, technologies, description) *</label>
+                                    <input type="text" id="projects" required>
+                                    <span class="error" id="projectsError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="leadership">Leadership Roles (clubs, unions) *</label>
+                                    <input type="text" id="leadership" required>
+                                    <span class="error" id="leadershipError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="workSamples">Work Samples or Attachments (e.g., CV) *</label>
+                                    <input type="file" id="workSamples" accept=".pdf,.docx,.doc" required>
+                                    <span class="error" id="workSamplesError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Statement -->
+                    <div class="section">
+                        <h2 class="section-title">7. Personal Statement <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="careerObjective">Career Objective *</label>
+                                    <textarea id="careerObjective" rows="3" required></textarea>
+                                    <span class="error" id="careerObjectiveError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="whyInternship">Why are you seeking this internship? *</label>
+                                    <textarea id="whyInternship" rows="3" required></textarea>
+                                    <span class="error" id="whyInternshipError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="valueToCompany">What value can you bring to the company? *</label>
+                                    <textarea id="valueToCompany" rows="3" required></textarea>
+                                    <span class="error" id="valueToCompanyError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Special Conditions -->
+                    <div class="section">
+                        <h2 class="section-title">8. Special Conditions (Optional) <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="disability">Disability Status (Yes/No)</label>
+                                    <select id="disability">
+                                        <option value="">Select Option</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <span class="error" id="disabilityError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="financialBackground">Family Financial Background</label>
+                                    <select id="financialBackground">
+                                        <option value="">Select Option</option>
+                                        <option value="Low-income">Low-income</option>
+                                        <option value="Average">Average</option>
+                                        <option value="High-income">High-income</option>
+                                    </select>
+                                    <span class="error" id="financialBackgroundError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstGen">First-generation university student? (Yes/No)</label>
+                                    <select id="firstGen">
+                                        <option value="">Select Option</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <span class="error" id="firstGenError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consent & Agreement -->
+                    <div class="section">
+                        <h2 class="section-title">9. Consent & Agreement <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span></h2>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="dataConsent" required> Consent to share data with partner companies
+                                    </label>
+                                    <span class="error" id="dataConsentError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="termsAgreement" required> Agree to terms and conditions
+                                    </label>
+                                    <span class="error" id="termsAgreementError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="aiConsent" required> Allow AI algorithm to match and contact
+                                    </label>
+                                    <span class="error" id="aiConsentError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  <a href="../dashboard/student.html"><button type="submit" class="submit-btn">Submit Profile</button></a>  
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../js/info-building.js"></script>
+    <script>
+        // Toggle Sections
+        document.querySelectorAll('.section-title').forEach(title => {
+            title.addEventListener('click', () => {
+                const content = title.nextElementSibling;
+                const icon = title.querySelector('.toggle-icon i');
+                content.style.display = content.style.display === 'grid' ? 'none' : 'grid';
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Image Preview for Profile Picture
+        document.getElementById('profilePicture').addEventListener('change', function(e) {
+            const preview = document.getElementById('profilePicturePreview');
+            preview.innerHTML = '';
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Profile Picture Preview';
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                const img = document.createElement('img');
+                img.src = 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80';
+                img.alt = 'Default Profile Picture';
+                preview.appendChild(img);
+            }
+        });
+
+        // Image Preview for Portfolio Images
+        document.getElementById('portfolioImages').addEventListener('change', function(e) {
+            const preview = document.getElementById('portfolioImagesPreview');
+            preview.innerHTML = '';
+            const files = e.target.files;
+            if (files.length > 0) {
+                const maxImages = Math.min(files.length, 3); // Limit to 3 images
+                for (let i = 0; i < maxImages; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = `Portfolio Image ${i + 1}`;
+                        preview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            } else {
+                const defaultImages = [
+                    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+                    'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'
+                ];
+                defaultImages.forEach((src, index) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `Portfolio Image ${index + 1}`;
+                    preview.appendChild(img);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

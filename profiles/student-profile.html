@@ -1,0 +1,87 @@
+<!-- student-profile.html for profiles -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="container">
+    <h1 class="profile-header">Student Profile</h1>
+    
+    <form id="studentProfileForm" class="profile-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label>University</label>
+        <input type="text" id="university" required>
+      </div>
+
+      <div class="form-group">
+        <label>Skills (comma separated)</label>
+        <textarea id="skills" rows="3" placeholder="HTML, CSS, JavaScript,..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Education</label>
+        <textarea id="education" rows="3" placeholder="Degree, Major,..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Save Profile</button>
+    </form>
+  </main>
+
+  <script>
+    // Load navbar
+    fetch('../components/navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+      });
+
+    // Load existing profile
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const student = users.find(u => u.id === currentUser.id);
+
+      if (student?.profile) {
+        document.getElementById('fullName').value = student.profile.fullName || '';
+        document.getElementById('university').value = student.profile.university || '';
+        document.getElementById('skills').value = student.profile.skills?.join(', ') || '';
+        document.getElementById('education').value = student.profile.education || '';
+      }
+    });
+
+    // Save profile
+    document.getElementById('studentProfileForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const users = JSON.parse(localStorage.getItem('users'));
+
+      const updatedProfile = {
+        fullName: document.getElementById('fullName').value,
+        university: document.getElementById('university').value,
+        skills: document.getElementById('skills').value.split(',').map(s => s.trim()),
+        education: document.getElementById('education').value
+      };
+
+      const updatedUsers = users.map(user => 
+        user.id === currentUser.id ? {...user, profile: updatedProfile} : user
+      );
+
+      localStorage.setItem('users', JSON.stringify(updatedUsers));
+      alert('Profile saved successfully!');
+    });
+  </script>
+</body>
+</html>

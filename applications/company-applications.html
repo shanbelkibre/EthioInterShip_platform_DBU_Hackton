@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Management | ETHIOSSSINTERN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="applications.css">
+</head>
+<body class="applications-bg">
+    <div id="navbar-container"></div>
+
+    <div class="applications-container">
+        <div class="applications-header">
+            <h1><i class="fas fa-users"></i> Applicant Management</h1>
+            <div class="filter-controls">
+                <select id="internshipFilter" class="filter-select">
+                    <option value="">All Internships</option>
+                </select>
+                <select id="statusFilter" class="filter-select">
+                    <option value="">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="accepted">Accepted</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search applicants...">
+                </div>
+            </div>
+        </div>
+
+        <div class="applicants-grid" id="applicantsContainer">
+            <!-- Applicants will be loaded here -->
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading applicants...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Detail Modal -->
+    <div id="applicantModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="../components/navbar.js" type="module"></script>
+    <script src="company-applications.js" type="module"></script>
+</body>
+</html>

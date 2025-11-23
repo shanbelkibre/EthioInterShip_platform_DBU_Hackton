@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternLink - General Login</title>
+    <link rel="stylesheet" href="../css/general-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-options">
+                <div class="login-header">
+                    <i class="fas fa-user"></i>
+                    <h1>Find your ideal internship</h1>
+                    <p>Enter your email address to take the first step to building a strong profile and connecting with global companies.</p>
+                </div>
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" placeholder="example@gmail.com" required>
+                    </div>
+                    <button type="submit" class="login-btn">Continue with email</button>
+                </form>
+                <div class="or-separator">Or</div>
+                <button class="google-btn">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <p class="terms">By continuing you are agreeing to Virtual Internships's Terms of Use & Privacy Policy and confirming that you are above 18 years of age.</p>
+                <a href="intern-path.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Go back
+                </a>
+            </div>
+            <div class="login-description">
+                <h2>Gain career-ready skills and global work experience through the #1 platform for guaranteed remote internships</h2>
+                <img src="../IMAGES/lookintern.png" alt="Internship Journey" class="login-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    document.querySelector('.login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value.trim();
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            localStorage.setItem('tempEmail', email);
+            window.location.href = '../dashboard/info-building.html';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    });
+</script>
+
+</body>
+</html>

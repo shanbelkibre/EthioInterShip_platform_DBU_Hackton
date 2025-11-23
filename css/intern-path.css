@@ -1,0 +1,185 @@
+/* Intern Path Styles */
+.intern-path {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+.path-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    gap: 4rem;
+    align-items: center;
+}
+
+.path-options {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.path-options h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+.path-options p {
+    font-size: 1.1rem;
+    color: #2a5298;
+    margin-bottom: 2rem;
+}
+
+.path-options h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2a5298;
+    margin-bottom: 1.5rem;
+}
+
+.option-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+}
+
+.option-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.option-header i {
+    font-size: 1.5rem;
+    color: #00d4ff;
+}
+
+.option-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e3c72;
+}
+
+.option-card p {
+    font-size: 1rem;
+    color: #2a5298;
+    margin-bottom: 1rem;
+}
+
+.option-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.option-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #2a5298;
+}
+
+.option-details i {
+    color: #00d4ff;
+}
+
+.company-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2a5298;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: color 0.3s ease;
+}
+
+.company-link:hover {
+    color: #00d4ff;
+}
+
+.path-description {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.path-description h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3c72;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.path-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .path-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .path-options h1 {
+        font-size: 2rem;
+    }
+
+    .path-description h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .path-options h1 {
+        font-size: 1.8rem;
+    }
+
+    .path-options h2 {
+        font-size: 1.3rem;
+    }
+
+    .option-card {
+        padding: 1.5rem;
+    }
+
+    .path-description h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .path-options h1 {
+        font-size: 1.5rem;
+    }
+
+    .path-options p {
+        font-size: 0.95rem;
+    }
+
+    .company-link {
+        font-size: 0.9rem;
+    }
+}

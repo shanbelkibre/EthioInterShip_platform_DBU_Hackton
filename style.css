@@ -1,0 +1,228 @@
+/* style.css */
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: #f0f2f5;
+    color: #1c1e21;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  /* ===== Utility Classes ===== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background: #1877f2;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background: #166fe5;
+  }
+  
+  .btn-secondary {
+    background: #42b72a;
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background: #36a420;
+  }
+  
+  /* ===== Auth Pages ===== */
+  .auth-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 2rem auto;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 1.5rem;
+    color: #1877f2;
+    text-align: center;
+  }
+  
+  .auth-form input,
+  .auth-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* ===== Dashboard ===== */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dddfe2;
+  }
+  
+  .nav-buttons {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  /* ===== Internship Cards ===== */
+  .internship-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .internship-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .internship-card h3 {
+    color: #1877f2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .internship-card p {
+    color: #65676b;
+    margin-bottom: 1rem;
+  }
+  
+  /* ===== Profile Pages ===== */
+  .profile-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .profile-form input,
+  .profile-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+  }
+  
+  /* ===== Chat Interface ===== */
+  .chat-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  
+  .message.sent {
+    background: #1877f2;
+    color: white;
+    margin-left: auto;
+  }
+  
+  .message.received {
+    background: #f0f2f5;
+    margin-right: auto;
+  }
+  
+  .chat-input {
+    padding: 20px;
+    border-top: 1px solid #dddfe2;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 5px;
+  }
+  
+  /* ===== Application Status ===== */
+  .status-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .status-approved { border-left: 4px solid #42b72a; }
+  .status-pending { border-left: 4px solid #fbbc05; }
+  -status-rejected { border-left: 4px solid #ea4335; }
+  
+  /* ===== Responsive Design ===== */
+  @media (max-width: 768px) {
+    .auth-container {
+      width: 90%;
+      margin: 1rem auto;
+    }
+  
+    .internship-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .chat-container {
+      height: 70vh;
+    }
+  }
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+

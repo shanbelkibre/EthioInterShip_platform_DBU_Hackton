@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | ETHIOSSSINTERN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-bg">
+    <div id="navbar-container"></div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header glassmorphism">
+            <div class="header-content">
+                <h1><i class="fas fa-user-graduate"></i> Student Dashboard</h1>
+                <p>Find your next career opportunity</p>
+            </div>
+            <div class="user-info">
+                <img src="../assets/image.png" alt="Profile" class="profile-img">
+                <span id="student-name"></span>
+            </div>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="stat-card glassmorphism">
+                <div class="stat-icon" style="background-color: #e3f2fd;">
+                    <i class="fas fa-paper-plane" style="color: #1976d2;"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="applications-sent">0</h3>
+                    <p>Applications Sent</p>
+                </div>
+            </div>
+
+            <div class="stat-card glassmorphism">
+                <div class="stat-icon" style="background-color: #e8f5e9;">
+                    <i class="fas fa-check-circle" style="color: #388e3c;"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="accepted-applications">0</h3>
+                    <p>Accepted</p>
+                </div>
+            </div>
+
+            <div class="stat-card glassmorphism">
+                <div class="stat-icon" style="background-color: #fff3e0;">
+                    <i class="fas fa-comments" style="color: #f57c00;"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="unread-messages">0</h3>
+                    <p>Unread Messages</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-actions">
+            <h2><i class="fas fa-rocket"></i> Quick Actions</h2>
+            <div class="action-buttons">
+                <a href="../internships/internship-view.html" class="action-card glassmorphism">
+                    <i class="fas fa-search"></i>
+                    <span>Browse Internships</span>
+                </a>
+
+                <a href="../applications/student-applications.html" class="action-card glassmorphism">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Applications</span>
+                </a>
+
+                <a href="../dashboard/info-building.html" class="action-card glassmorphism">
+                    <i class="fas fa-edit"></i>
+                    <span>Edit My Profile</span>
+                </a>
+
+                <a href="../chat/chat.html" class="action-card glassmorphism">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>View Messages</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="re commended-internships">
+            <h2><i class="fas fa-star"></i> Recommended For You</h2>
+            <div id="internship-list" class="internship-grid">
+                <!-- Internships will be loaded here -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading recommendations...</p>
+                </div>..
+            </div>
+            <a href="../internships/internship-view.html" class="view-all">View All Internships →</a>
+        </div>
+    </div>
+
+    <script src="../components/navbar.html" type="module"></script>
+    <script src="student.js" type="module"></script>
+</body>
+</html>

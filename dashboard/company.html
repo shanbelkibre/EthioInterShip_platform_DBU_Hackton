@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Dashboard | ETHIOSSSINTERN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-bg">
+    <div id="navbar-container"></div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header glassmorphism">
+            <div class="header-content">
+                <h1><i class="fas fa-building"></i> Company Dashboard</h1>
+                <p>Manage your internships and applicants</p>
+            </div>
+            <div class="user-info">
+                <a href="../profiles/company-profile.html">
+                    <img src="../assets/image.png" alt="Profile" class="profile-img">
+                    <span id="company-name"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="stat-card glassmorphism">
+                <div class="stat-icon" style="background-color: #e3f2fd;">
+                    <i class="fas fa-briefcase" style="color: #1976d2;"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="active-internships">0</h3>
+                    <p>Active Internships</p>
+                </div>
+            </div>
+
+            <div class="stat-card glassmorphism">
+                <div class="stat-icon" style="background-color: #e8f5e9;">
+                    <i class="fas fa-users" style="color: #388e3c;"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="total-applicants">0</h3>
+                    <p>Total Applicants</p>
+                </div>
+            </div>
+
+            <div class="stat-card glassmorphism">
+                <div class="stat-icon" style="background-color: #fff3e0;">
+                    <i class="fas fa-comments" style="color: #f57c00;"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="unread-messages">0</h3>
+                    <p>Unread Messages</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-actions">
+            <h2><i class="fas fa-rocket"></i> Quick Actions</h2>
+            <div class="action-buttons">
+                <a href="../internships/internship-form.html" class="action-card glassmorphism">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Post New Internship</span>
+                </a>
+
+                <a href="../applications/company-applications.html" class="action-card glassmorphism">
+                    <i class="fas fa-user-check"></i>
+                    <span>Manage Applicants</span>
+                </a>
+
+                <a href="../profiles/company-profile.html" class="action-card glassmorphism">
+                    <i class="fas fa-edit"></i>
+                    <span>Edit Company Profile</span>
+                </a>
+
+                <a href="../chat/chat.html" class="action-card glassmorphism">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>View Messages</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="recent-internships">
+            <h2><i class="fas fa-clock"></i> Recent Internships</h2>
+            <div id="internship-list" class="internship-grid">
+                <!-- Internships will be loaded here -->
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading internships...</p>
+                </div>
+            </div>
+            <a href="../internships/internship-view.html" class="view-all">View All Internships →</a>
+        </div>
+    </div>
+
+    <script src="../components/navbar.html" type="module"></script>
+    <script src="company.js" type="module"></script>
+</body>
+</html>

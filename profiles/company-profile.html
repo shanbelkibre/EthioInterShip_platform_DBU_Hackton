@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile | ETHIOSSSINTERN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./profile.css">
+</head>
+<body class="profile-bg">
+    <div id="navbar-container"></div>
+
+    <div class="profile-container">
+        <div class="profile-header glassmorphism">
+            <h1><i class="fas fa-building"></i> Company Profile</h1>
+            <p>Manage your company information and branding</p>
+        </div>
+
+        <form id="companyProfileForm" class="profile-form glassmorphism">
+            <div class="profile-image-section">
+                <div class="image-upload">
+                    <div class="image-preview" id="imagePreview">
+                        <img src="../assets/profile-icon.png" alt="Company Logo" id="previewImage">
+                        <div class="image-upload-overlay">
+                            <i class="fas fa-camera"></i>
+                            <span>Change Logo</span>
+                        </div>
+                    </div>
+                    <input type="file" id="companyLogo" accept="image/*" style="display: none;">
+                </div>
+                <div class="image-upload-info">
+                    <h3>Company Logo</h3>
+                    <p>Upload a high-quality logo (PNG, JPG, max 2MB)</p>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="companyName"><i class="fas fa-building"></i> Company Name*</label>
+                    <input type="text" id="companyName" required placeholder="Enter your company name">
+                </div>
+
+                <div class="form-group">
+                    <label for="industry"><i class="fas fa-industry"></i> Industry*</label>
+                    <select id="industry" required>
+                        <option value="">Select your industry</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Education">Education</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="website"><i class="fas fa-globe"></i> Website</label>
+                    <input type="url" id="website" placeholder="https://yourcompany.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="foundedYear"><i class="fas fa-calendar-alt"></i> Founded Year</label>
+                    <input type="number" id="foundedYear" min="1900" max="2023" placeholder="YYYY">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="headquarters"><i class="fas fa-map-marker-alt"></i> Headquarters</label>
+                <input type="text" id="headquarters" placeholder="City, Country">
+            </div>
+
+            <div class="form-group">
+                <label for="companySize"><i class="fas fa-users"></i> Company Size</label>
+                <select id="companySize">
+                    <option value="">Select company size</option>
+                    <option value="1-10">1-10 employees</option>
+                    <option value="11-50">11-50 employees</option>
+                    <option value="51-200">51-200 employees</option>
+                    <option value="201-500">201-500 employees</option>
+                    <option value="501-1000">501-1000 employees</option>
+                    <option value="1000+">1000+ employees</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description"><i class="fas fa-align-left"></i> Company Description*</label>
+                <textarea id="description" rows="5" required placeholder="Tell us about your company, mission, and values"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-tags"></i> Specializations</label>
+                <div class="tags-input-container">
+                    <div id="tagsList" class="tags-list"></div>
+                    <input type="text" id="tagInput" placeholder="Add specialization (press Enter)">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+
+                   <a href="../dashboard/company.html"></a> <i class="fas fa-save"></i> Save Profile
+                </button>
+                <button type="button" class="btn-secondary" id="resetForm">
+                    <i class="fas fa-undo"></i> Reset Changes
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../components/navbar.html" type="module"></script>
+    <script src="company-profile.js" type="module"></script>
+</body>
+</html>

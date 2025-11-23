@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Internships</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="internships.css">
+</head>
+<body class="gradient-bg">
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="view-header">
+            <h1><i class="fas fa-search"></i> Browse Internship Opportunities</h1>
+            <p>Find the perfect internship to kickstart your career</p>
+        </div>
+
+        <div class="internship-filters glassmorphism">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search internships...">
+            </div>
+            
+            <div class="filter-group">
+                <label for="typeFilter"><i class="fas fa-filter"></i> Type</label>
+                <select id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="full-time">Full-time</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="remote">Remote</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="durationFilter"><i class="fas fa-clock"></i> Duration</label>
+                <select id="durationFilter">
+                    <option value="">Any Duration</option>
+                    <option value="1-12">1-3 months</option>
+                    <option value="13-24">3-6 months</option>
+                    <option value="25+">6+ months</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="stipendFilter"><i class="fas fa-dollar-sign"></i> Stipend</label>
+                <select id="stipendFilter">
+                    <option value="">Any Stipend</option>
+                    <option value="paid">Paid Only</option>
+                    <option value="unpaid">Unpaid</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="internshipList" class="internship-list">
+            <!-- Internships will be loaded here -->
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading internships...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../components/navbar.html" type="module"></script>
+    <script src="internship-view.js" type="module"></script>
+</body>
+</html>

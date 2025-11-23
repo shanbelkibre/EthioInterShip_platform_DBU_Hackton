@@ -1,0 +1,26 @@
+<!-- chat.html for chat -->
+
+<body>
+    <div class="chat-box">
+      <div id="messages"></div>
+      <input type="text" id="message-input">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+      function sendMessage() {
+        const msg = document.getElementById('message-input').value;
+        const messages = JSON.parse(localStorage.getItem('chat')) || [];
+        messages.push({ sender: 'Student', text: msg, time: new Date() });
+        localStorage.setItem('chat', JSON.stringify(messages));
+      }
+      
+      // Refresh messages every 2 seconds
+      setInterval(() => {
+        const messages = JSON.parse(localStorage.getItem('chat')) || [];
+        document.getElementById('messages').innerHTML = messages.map(m => 
+          `<p>${m.sender}: ${m.text}</p>`
+        ).join('');
+      }, 2000);
+    </script>
+  </body>
+  

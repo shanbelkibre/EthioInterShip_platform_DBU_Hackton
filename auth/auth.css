@@ -1,0 +1,180 @@
+:root {
+    --golden-ratio: 1.618;
+    --base-unit: 16px;
+    --spacing-unit: calc(var(--base-unit) * var(--golden-ratio)); /* ~25.9px */
+    --spacing-unit-small: var(--base-unit); /* 16px */
+    --spacing-unit-large: calc(var(--spacing-unit) * var(--golden-ratio)); /* ~41.9px */
+    --font-size-large: calc(var(--base-unit) * var(--golden-ratio) * var(--golden-ratio)); /* ~42px */
+    --font-size-medium: calc(var(--base-unit) * var(--golden-ratio)); /* ~25.9px */
+    --font-size-small: var(--base-unit); /* 16px */
+    --primary-color: #007bff;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --card-width: 450px;
+    --card-height: calc(var(--card-width) / var(--golden-ratio)); /* ~278px */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--card-width);
+    padding: var(--spacing-unit);
+}
+
+.auth-box, .dashboard {
+    background: rgba(255, 255, 255, 0.95);
+    padding: var(--spacing-unit-large);
+    border-radius: calc(var(--spacing-unit) / 2);
+    box-shadow: 0 var(--spacing-unit) calc(var(--spacing-unit) * 2) rgba(0, 0, 0, 0.1);
+    min-height: var(--card-height);
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--spacing-unit-large);
+    border-bottom: 1px solid #eee;
+}
+
+.tab {
+    padding: var(--spacing-unit-small) var(--spacing-unit);
+    border: none;
+    background: none;
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.tab.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin-bottom: var(--spacing-unit-large);
+    color: #2c3e50;
+}
+
+p {
+    font-size: var(--font-size-medium);
+    color: #34495e;
+    text-align: center;
+    margin-bottom: var(--spacing-unit-large);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-unit);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-unit-small);
+    font-size: var(--font-size-small);
+    color: #34495e;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--spacing-unit-small);
+    border: 1px solid #ddd;
+    border-radius: calc(var(--spacing-unit) / 4);
+    font-size: var(--font-size-small);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: var(--spacing-unit-small) var(--spacing-unit);
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: calc(var(--spacing-unit) / 4);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3; /* Darkened primary color */
+}
+
+.role-field {
+    display: none;
+}
+
+.notification {
+    position: fixed;
+    bottom: var(--spacing-unit-large);
+    right: var(--spacing-unit);
+    padding: var(--spacing-unit-small) var(--spacing-unit);
+    border-radius: calc(var(--spacing-unit) / 4);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit-small);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.notification.success {
+    background: var(--success-color);
+}
+
+.notification.error {
+    background: var(--error-color);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-unit-small);
+    }
+    .auth-box, .dashboard {
+        padding: var(--spacing-unit);
+    }
+    .notification {
+        bottom: var(--spacing-unit-small);
+        right: var(--spacing-unit-small);
+    }
+}
