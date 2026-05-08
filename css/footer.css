@@ -8,9 +8,9 @@
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 6%;
 }
 
 .footer-top {
@@ -50,20 +50,17 @@
 
 .footer-links {
   display: flex;
-  justify-content: space-around;
-  gap: 4rem;
+  flex-wrap: nowrap; /* keep all columns on one line */
+  justify-content: space-between; /* spread columns across full width */
+  gap: 0;
   margin-top: 2.25rem;
   text-align: left;
   width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .footer-column {
   display: block;
-  flex: 1 1 0;
-  min-width: 180px;
+  flex: 0 0 22%; /* four columns taking ~22% each to fill row, fixed basis */
   padding-left: 1rem;
 }
 
@@ -219,6 +216,15 @@
     font-size: 0.9rem;
   }
 }
+
+/* Strong overrides to ensure footer.css wins over page-specific styles (e.g., aboutus.css) */
+footer.site-footer .footer-container { max-width: 1400px !important; padding: 0 6% !important; }
+footer.site-footer .footer-top { display: block !important; grid-template-columns: none !important; padding-bottom: 2rem !important; border-bottom: 1px solid rgba(255,255,255,0.15) !important; }
+footer.site-footer .footer-brand { display:flex !important; flex-direction:column !important; align-items:center !important; }
+footer.site-footer .footer-links { display:flex !important; flex-wrap:nowrap !important; justify-content:space-between !important; width:100% !important; gap:0 !important; margin-top:2.25rem !important; }
+footer.site-footer .footer-column { flex: 0 0 22% !important; min-width: 140px !important; padding-left:1rem !important; }
+footer.site-footer .footer-column h4::after { background: #07a0d8 !important; }
+footer.site-footer .footer-legal { align-items: center !important; }
 
 /* subtle hover animation for legal links */
 .legal-links a {
