@@ -40,7 +40,9 @@
 }
 
 .social-links {
-  display: none;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
 }
 
 .social-links a {
@@ -48,36 +50,65 @@
 }
 
 .footer-links {
-  display: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: left;
 }
 
 .footer-column {
-  display: none;
+  display: block;
 }
 
 .footer-column h4 {
-  display: none;
+  color: #f3f6fb;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .footer-column ul {
-  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-column li {
-  display: none;
+  margin: 0.35rem 0;
 }
 
 .footer-column a {
-  display: none;
+  color: #bcd2e6;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    transform 200ms ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+  transform: translateX(6px);
+}
+
+/* small icon badge for brand */
+.footer-brand .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(180deg, #07a0d8, #0077b6);
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
 }
 
 .footer-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
-  text-align: center;
-  flex-direction: column;
+  text-align: left;
+  flex-direction: row;
 }
 
 .footer-legal {
@@ -99,8 +130,28 @@
   font-size: 0.95rem;
 }
 
+.footer-badge-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(180deg, #07a0d8, #0077b6);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+}
+
+.footer-badge-mini .ei {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
 .legal-links {
-  display: none;
+  display: flex;
+  gap: 1rem;
 }
 
 .legal-links a {
@@ -135,5 +186,40 @@
 
   .footer-legal p {
     font-size: 0.8rem;
+  }
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .footer-brand .badge {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* subtle hover animation for legal links */
+.legal-links a {
+  color: #bfc9cf;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    transform 150ms ease;
+}
+
+.legal-links a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* small screens vertical stack */
+@media (max-width: 480px) {
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+  .footer-brand .badge {
+    display: block;
+    margin: 0 auto 12px;
   }
 }
