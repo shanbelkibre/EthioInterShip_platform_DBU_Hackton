@@ -14,7 +14,6 @@
 }
 
 .footer-top {
-  text-align: center;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
@@ -50,15 +49,21 @@
 }
 
 .footer-links {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2.5rem;
   margin-top: 2rem;
   text-align: left;
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-column {
   display: block;
+  flex: 1 1 0;
+  min-width: 160px;
 }
 
 .footer-column h4 {
@@ -175,7 +180,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .footer-tagline {
     font-size: 0.85rem;
   }
@@ -188,9 +193,12 @@
     font-size: 0.8rem;
   }
   .footer-links {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-top: 1rem;
+    max-width: 900px;
+    padding: 0 1rem;
   }
 
   .footer-brand .badge {
