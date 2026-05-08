@@ -1,253 +1,281 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>educators</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="../css/educators.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <!-- <img src="images/logo.png" alt="Vin Long Internships Logo" class="logo-img"> -->
-                    <span class="logo-text">EthioIntern</span>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a href="#company-content">Companies <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#">Hire Talent</a>
-                        <a href="#">Post Opportunities</a>
-                        <a href="#">Success Stories</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Education <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#">Partner With Us</a>
-                        <a href="#">Programs</a>
-                        <a href="#">Resources</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Informs <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#">News</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Events</a>
-                    </div>
-                </li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">About Us</a></li>
-                <li class="login-btn"><a href="#">Login</a></li>
-                <li class="login-btn"><a href="#">SignUp</a></li>
-                
-            </ul>
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </nav>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Companies - EthioInterShip</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding-top: 80px;
+      }
 
+      .company-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 80px 5%;
+        text-align: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.6s ease-out;
+      }
 
+      .company-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        animation: slideUp 0.6s ease-out;
+      }
 
-    <!-- Guarantee Section -->
-<!-- Guarantee Section -->
-<section class="guarantee-section">
-    <div class="guarantee-container">
-      <div class="content-wrapper">
-        <h2 class="guarantee-title animate__animated animate__fadeInDown">Guarantee Your Students <span>an Unbeatable Advantage</span></h2>
-        <p class="guarantee-text animate__animated animate__fadeIn animate__delay-1s">
-          The only platform that guarantees 100% of your students' root-words work experiences with companies across the globe
-        </p>
-        <a href="#" class="btn learn-more animate__animated animate__fadeInUp animate__delay-2s">Learn More</a>
+      .company-hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0.95;
+        animation: slideUp 0.6s ease-out 0.1s both;
+      }
+
+      .btn-primary {
+        background: white;
+        color: #667eea;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        animation: slideUp 0.6s ease-out 0.2s both;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+      }
+
+      .company-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 0 5%;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-card i {
+        font-size: 2.5rem;
+        color: #667eea;
+        margin-bottom: 15px;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .feature-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .cta-section {
+        background: #f8f9fa;
+        padding: 80px 5%;
+        text-align: center;
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .cta-section p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-btn {
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 100%
+        ) !important;
+        color: white !important;
+      }
+
+      .cta-btn:hover {
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4) !important;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .company-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .company-hero p {
+          font-size: 1rem;
+        }
+
+        .company-features {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-section h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">InternLink</div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../HTML/aboutus.html">About us</a></li>
+        <li><a href="../HTML/educators.html">Companies</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../auth/login.html" class="btn">Login</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
-      
-      <div class="guarantee-image animate__animated animate__fadeIn animate__delay-1s">
-        <!-- Updated image with larger display -->
-        <img src="../IMAGES/educators.png" alt="Diverse students collaborating in global work environment" class="featured-image">
+    </nav>
+
+    <!-- Company Hero Section -->
+    <section class="company-hero">
+      <div>
+        <h1>Hire Top Talent Globally</h1>
+        <p>Connect with motivated interns from top universities worldwide</p>
+        <a href="../auth/login.html" class="btn-primary">Get Started</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- challenges .html -->
-
-
-  <section class="challenge-section">
-    <div class="challenge-container">
-      <div class="content-wrapper">
-        <h2 class="challenge-title animate__animated animate__fadeInDown">The Challenge</h2>
-        <p class="challenge-text animate__animated animate__fadeIn animate__delay-1s">
-          Choosing a university that enhances employability is critical for students, 
-          yet <strong>only 35%*</strong> feel ready for the workforce. Employers favor 
-          graduates with practical experience, but providing such opportunities at scale 
-          poses a significant challenge.
-        </p>
-        <p class="challenge-cta animate__animated animate__fadeIn animate__delay-2s">
-          It's time to address the issue and equip students with the skills they need to succeed in the workforce.
-        </p>
-        <p class="source-note animate__animated animate__fadeIn animate__delay-3s">
-          *Source: original Education Policy research
-        </p>
+    <!-- Features Section -->
+    <section class="company-features">
+      <div class="feature-card">
+        <i class="fas fa-globe"></i>
+        <h3>Global Reach</h3>
+        <p>Access talented interns from universities across the globe</p>
       </div>
-      
-      <div class="challenge-image animate__animated animate__fadeIn animate__delay-1s">
-        <img src="../IMAGES/challenge.png" alt="Students facing employment challenges" class="featured-image">
+      <div class="feature-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Quick Matching</h3>
+        <p>Our AI algorithm matches you with the best candidates instantly</p>
       </div>
-    </div>
-  </section>
+      <div class="feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Growth</h3>
+        <p>Build your talent pipeline with proven performers</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-headset"></i>
+        <h3>Support</h3>
+        <p>24/7 support throughout the internship program</p>
+      </div>
+    </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Ready to Hire?</h2>
+      <p>
+        Join hundreds of companies using EthioInterShip to build their talent
+        pipeline
+      </p>
+      <a href="../auth/login.html" class="btn-primary cta-btn"
+        >Post Your First Internship</a
+      >
+    </section>
 
-
-<!-- UNIVRSITIES SECTION  -->
-
-
-  <section class="universities-section">
-    <div class="universities-container">
-      <button class="nav-arrow prev-arrow">‹</button>
-      
-      <div class="universities-content">
-        <h2 class="universities-title animate__animated animate__fadeInDown">Why Universities Love <span>Virtual Internships</span></h2>
-        <p class="universities-subtitle animate__animated animate__fadeIn animate__delay-1s">
-          Increasing student employability and enhancing academic programs through remote internship opportunities – our  partners say it best...
-        </p>
-        
-        <div class="testimonial-card animate__animated animate__fadeIn animate__delay-2s">
-          <div class="quote-icon">"</div>
-          <blockquote>
-            <p> internships offer a valuable opportunity for students to gain industry-specific, international work experience to help make their resumes stand out</p>
-          </blockquote>
-          <div class="testimonial-author">
-            <div class="author-info">
-              <h4>Prof. Leyburn</h4>
-              <p class="position">Assistant Director of Internships</p>
-              <p class="institution">  Addisabeba university University</p>
-            </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img
+              src="../assets/logo.svg"
+              alt="InternLink"
+              class="footer-logo"
+            />
+            <p class="footer-tagline">
+              Shaping tomorrow's workforce through global internships
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <p class="copyright-text">
+              © 2025 EthioInterShip Platform | Developed by Shanbel Kibre
+            </p>
+            <p>All rights reserved.</p>
           </div>
         </div>
       </div>
-      
-      <button class="nav-arrow next-arrow">›</button>
-    </div>
-  </section>
-
-  <!-- LETS CHAT SECTION -->
-
-  <!-- Chat Section -->
-<!-- Let's Chat Section -->
-<!-- Let's Chat Section - Image Left/Text Right -->
-<section class="lets-chat-section">
-    <div class="lets-chat-container">
-      <div class="lets-chat-image animate__animated animate__fadeIn animate__delay-1s">
-        <img src="../IMAGES/FINALPHOTO.png" alt="Team discussing student employability solutions">
-      </div>
-      
-      <div class="lets-chat-content">
-        <h2 class="lets-chat-title animate__animated animate__fadeInDown">Let's Chat and Increase Student Employability Today!</h2>
-        <p class="lets-chat-text animate__animated animate__fadeIn animate__delay-1s">
-          Schedule a call with us to discover how our platform can provide your students with invaluable  work experience and increase student employability.
-        </p>
-        <a href="#" class="demo-btn animate__animated animate__fadeInUp animate__delay-2s">Request a Demo</a>
-      </div>
-    </div>
-  </section>
-
-  
-
-  
-
-
-
-    <footer class="site-footer" style="background: linear-gradient(rgba(44, 62, 80, 0.95), rgba(44, 62, 80, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="images/logo.png"  class="footer-logo">
-                    <p class="footer-tagline">Shaping tomorrow's workforce through  internships</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>For Companies</h4>
-                        <ul>
-                            <li><a href="#">Hire Interns</a></li>
-                            <li><a href="#">Post Opportunities</a></li>
-                            <li><a href="#">Success Stories</a></li>
-                            <li><a href="#">Pricing</a></li>
-                        </ul>
-                    </div>
-    
-                    <div class="footer-column">
-                        <h4>For Educators</h4>
-                        <ul>
-                            <li><a href="#">Partner With Us</a></li>
-                            <li><a href="#">Curriculum Integration</a></li>
-                            <li><a href="#">Resources</a></li>
-                            <li><a href="#">Case Studies</a></li>
-                        </ul>
-                    </div>
-    
-                    <div class="footer-column">
-                        <h4>For Interns</h4>
-                        <ul>
-                            <li><a href="#">Find Internships</a></li>
-                            <li><a href="#">Career Resources</a></li>
-                            <li><a href="#">Success Stories</a></li>
-                            <li><a href="#">Alumni Network</a></li>
-                        </ul>
-                    </div>
-    
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Our Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <p>&copy; 2025 Developed by Walia coders Ethiopia. All rights reserved.</p>
-                    <div class="legal-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                     
-                    </div>
-                </div>
-    
-                <div class="footer-newsletter">
-                    <h4>Stay Updated</h4>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </footer>
 
-    <script src="../JS/educators.js"></script>
-    
-    
-</body>
+    <script src="../js/hamburger.js"></script>
+  </body>
 </html>

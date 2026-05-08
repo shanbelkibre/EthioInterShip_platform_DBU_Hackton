@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const stipendFilter = document.getElementById("stipendFilter");
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  // Check if user is logged in
-  if (!currentUser) {
+  // Check if user is logged in via OAuth
+  if (!currentUser || !currentUser.provider) {
     window.location.href = "../auth/login.html";
     return;
   }
@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
             .toLowerCase()
             .includes(filters.search.toLowerCase()) ||
           internship.skills.some((skill) =>
-            skill.toLowerCase().includes(filters.search.toLowerCase())
-          )
+            skill.toLowerCase().includes(filters.search.toLowerCase()),
+          ),
       );
     }
 
     if (filters.type) {
       internships = internships.filter(
-        (internship) => internship.type === filters.type
+        (internship) => internship.type === filters.type,
       );
     }
 
@@ -51,11 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (max) {
         internships = internships.filter(
           (internship) =>
-            internship.duration >= min && internship.duration <= max
+            internship.duration >= min && internship.duration <= max,
         );
       } else {
         internships = internships.filter(
-          (internship) => internship.duration >= min
+          (internship) => internship.duration >= min,
         );
       }
     }
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       internships = internships.filter((internship) => internship.stipend > 0);
     } else if (filters.stipend === "unpaid") {
       internships = internships.filter(
-        (internship) => internship.stipend === 0
+        (internship) => internship.stipend === 0,
       );
     }
 
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const postedDate = new Date(internship.postedDate);
       const deadlineDate = new Date(internship.deadline);
       const daysLeft = Math.ceil(
-        (deadlineDate - new Date()) / (1000 * 60 * 60 * 24)
+        (deadlineDate - new Date()) / (1000 * 60 * 60 * 24),
       );
 
       const internshipElement = document.createElement("div");
@@ -136,8 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 <div class="card-description">
                     <p>${internship.description.substring(0, 150)}${
-        internship.description.length > 150 ? "..." : ""
-      }</p>
+                      internship.description.length > 150 ? "..." : ""
+                    }</p>
                 </div>
                 
                 <div class="card-skills">
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       .map(
                         (skill) => `
                         <span class="skill-tag">${skill}</span>
-                    `
+                    `,
                       )
                       .join("")}
                     ${
@@ -160,35 +160,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                     <div class="actions">
     ${
-        currentUser.role === "student"
-            ? `<button class="btn-apply ${daysLeft <= 0 ? "disabled" : ""}" 
+      currentUser.role === "student"
+        ? `<button class="btn-apply ${daysLeft <= 0 ? "disabled" : ""}" 
                 data-id="${internship.id}" 
                 ${daysLeft <= 0 ? "disabled" : ""}>
                 <i class="fas fa-paper-plane"></i> 
                 ${
-                    internship.applicants.some(
-                        (a) => a.studentId === currentUser.id
-                    )
-                        ? "Applied"
-                        : "Apply Now"
+                  internship.applicants.some(
+                    (a) => a.studentId === currentUser.id,
+                  )
+                    ? "Applied"
+                    : "Apply Now"
                 }
                 </button>`
-            : currentUser.id === internship.companyId
-                ? `<button class="btn-view-applicants" data-id="${internship.id}">
+        : currentUser.id === internship.companyId
+          ? `<button class="btn-view-applicants" data-id="${internship.id}">
                     <i class="fas fa-users"></i> 
                     View Applicants (${internship.applicants.length})
                     </button>`
-                : `<button class="btn-apply" data-id="${internship.id}">
+          : `<button class="btn-apply" data-id="${internship.id}">
                     <i class="fas fa-paper-plane"></i> Apply
                     </button>               
-                    ` 
+                    `
     }
 </div>
 
             `;
-            if(!currentUser){
-                window.location.href = "../dashboard/info-building.html";
-            }
+      if (!currentUser) {
+        window.location.href = "../dashboard/info-building.html";
+      }
       internshipList.appendChild(internshipElement);
     });
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if already applied
     if (
       internships[internshipIndex].applicants.some(
-        (a) => a.studentId === currentUser.id
+        (a) => a.studentId === currentUser.id,
       )
     ) {
       showNotification("You have already applied for this internship.", "info");
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // View applicants
   function viewApplicants(internshipId) {
     window.location.href = `../applications/company-applications.html?internship=${encodeURIComponent(
-      internshipId
+      internshipId,
     )}`;
   }
 
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
       element.addEventListener("input", () => {
         loadInternships(getCurrentFilters());
       });
-    }
+    },
   );
 
   // Notification function
@@ -274,8 +274,8 @@ document.addEventListener("DOMContentLoaded", () => {
               type === "success"
                 ? "check-circle"
                 : type === "error"
-                ? "exclamation-circle"
-                : "info-circle"
+                  ? "exclamation-circle"
+                  : "info-circle"
             }"></i>
             ${message}
         `;

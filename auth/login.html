@@ -1,69 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth | Hackathon</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="auth.css">
-</head>
-<body>
-    <div class="container">
-        <div class="auth-box">
-            <div class="tabs">
-                <button class="tab active" data-tab="login">Login</button>
-                <button class="tab" data-tab="signup">Sign Up</button>
-            </div>
-            <div class="tab-content active" id="login-tab">
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="login-email">Email</label>
-                        <input type="email" id="login-email" required placeholder="example@domain.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password">Password</label>
-                        <input type="password" id="login-password" required placeholder="Enter password">
-                    </div>
-                    <button type="submit">Login</button>
-                </form>
-            </div>
-            <div class="tab-content" id="signup-tab">
-                <h2>Sign Up</h2>
-                <form id="signupForm">
-                    <div class="form-group">
-                        <label for="signup-name">Name</label>
-                        <input type="text" id="signup-name" required placeholder="Your name">
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-email">Email</label>
-                        <input type="email" id="signup-email" required placeholder="example@domain.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-password">Password</label>
-                        <input type="password" id="signup-password" required placeholder="Create password">
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-role">Role</label>
-                        <select id="signup-role" required>
-                            <option value="" disabled selected>Select role</option>
-                            <option value="student">Student</option>
-                            <option value="company">Company</option>
-                        </select>
-                    </div>
-                    <div class="form-group role-field" id="student-field" style="display: none;">
-                        <label for="signup-university">University</label>
-                        <input type="text" id="signup-university" placeholder="Your university">
-                    </div>
-                    <div class="form-group role-field" id="company-field" style="display: none;">
-                        <label for="signup-company">Company</label>
-                        <input type="text" id="signup-company" placeholder="Your company">
-                    </div>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - EthioInterShip Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="auth.css" />
+    <style>
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .login-container {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        padding: 50px 40px;
+        max-width: 500px;
+        width: 100%;
+        animation: slideUp 0.5s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .login-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .login-header h1 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .login-header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .oauth-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .oauth-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 14px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        background: white;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .oauth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .oauth-btn i {
+        font-size: 20px;
+      }
+
+      .linkedin-btn {
+        border-color: #0a66c2;
+        color: #0a66c2;
+      }
+
+      .linkedin-btn:hover {
+        background: #f0f6ff;
+      }
+
+      .github-btn {
+        border-color: #333;
+        color: #333;
+      }
+
+      .github-btn:hover {
+        background: #f6f6f6;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 30px 0;
+        color: #999;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #e0e0e0;
+      }
+
+      .info-box {
+        background: #f0f7ff;
+        border-left: 4px solid #667eea;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .back-link {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .back-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .back-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-header">
+        <h1>EthioInterShip</h1>
+        <p>Login with your professional account</p>
+      </div>
+
+      <div class="oauth-buttons">
+        <button class="oauth-btn linkedin-btn" id="linkedinBtn">
+          <i class="fab fa-linkedin-in"></i>
+          Login with LinkedIn
+        </button>
+        <button class="oauth-btn github-btn" id="githubBtn">
+          <i class="fab fa-github"></i>
+          Login with GitHub
+        </button>
+      </div>
+
+      <div class="info-box">
+        <i class="fas fa-info-circle"></i>
+        <strong>Why OAuth?</strong> We use LinkedIn and GitHub to verify your
+        professional credentials and skills, making the matching process more
+        accurate.
+      </div>
+
+      <div class="back-link">
+        <a href="../index.html">← Back to Home</a>
+      </div>
     </div>
-    <script src="auth.js"></script>
-</body>
+
+    <script src="oauth.js"></script>
+  </body>
 </html>

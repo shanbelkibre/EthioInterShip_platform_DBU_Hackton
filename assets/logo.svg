@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-labelledby="title desc">
+  <title id="title">EthioInterShip Logo</title>
+  <desc id="desc">Rounded blue badge with white EI letters and EthioInterShip wordmark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00A8E8"/>
+      <stop offset="1" stop-color="#0077B6"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="316" height="76" rx="14" fill="url(#bg)"/>
+  <rect x="14" y="14" width="52" height="52" rx="10" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="40" y="49" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">EI</text>
+  <text x="80" y="48" font-size="27" font-family="Arial, sans-serif" font-weight="700" fill="#ffffff">EthioInterShip</text>
+</svg>

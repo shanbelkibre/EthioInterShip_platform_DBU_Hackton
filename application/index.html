@@ -1,75 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Application Form | ETHIOSSSINTERN</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href="../applications/application-form.css">
-</head>
-<body class="form-bg">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style1.css" />
+    <link rel="stylesheet" href="../applications/application-form.css" />
+  </head>
+  <body class="form-bg">
     <div id="navbar-container"></div>
 
     <div class="form-container">
-        <div class="form-header">
-            <h1><i class="fas fa-file-signature"></i> Application Form</h1>
-            <p id="internship-title">Loading internship details...</p>
+      <div class="form-header">
+        <h1><i class="fas fa-file-signature"></i> Application Form</h1>
+        <p id="internship-title">Loading internship details...</p>
+      </div>
+
+      <form id="applicationForm" class="glassmorphism">
+        <div class="form-section">
+          <h2><i class="fas fa-user"></i> Personal Information</h2>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" />
+          </div>
         </div>
 
-        <form id="applicationForm" class="glassmorphism">
-            <div class="form-section">
-                <h2><i class="fas fa-user"></i> Personal Information</h2>
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone">
-                </div>
-            </div>
+        <div class="form-section">
+          <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+          <div class="form-group">
+            <label for="university">University/College</label>
+            <input type="text" id="university" required />
+          </div>
+          <div class="form-group">
+            <label for="major">Major/Field of Study</label>
+            <input type="text" id="major" required />
+          </div>
+          <div class="form-group">
+            <label for="graduationYear">Expected Graduation Year</label>
+            <input
+              type="number"
+              id="graduationYear"
+              min="2000"
+              max="2030"
+              required
+            />
+          </div>
+        </div>
 
-            <div class="form-section">
-                <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div class="form-group">
-                    <label for="university">University/College</label>
-                    <input type="text" id="university" required>
-                </div>
-                <div class="form-group">
-                    <label for="major">Major/Field of Study</label>
-                    <input type="text" id="major" required>
-                </div>
-                <div class="form-group">
-                    <label for="graduationYear">Expected Graduation Year</label>
-                    <input type="number" id="graduationYear" min="2000" max="2030" required>
-                </div>
-            </div>
+        <div class="form-section">
+          <h2><i class="fas fa-file-alt"></i> Application Materials</h2>
+          <div class="form-group">
+            <label for="coverLetter">Cover Letter</label>
+            <textarea id="coverLetter" rows="6" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="resume">Upload Resume (PDF)</label>
+            <input type="file" id="resume" accept=".pdf" required />
+          </div>
+        </div>
 
-            <div class="form-section">
-                <h2><i class="fas fa-file-alt"></i> Application Materials</h2>
-                <div class="form-group">
-                    <label for="coverLetter">Cover Letter</label>
-                    <textarea id="coverLetter" rows="6" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="resume">Upload Resume (PDF)</label>
-                    <input type="file" id="resume" accept=".pdf" required>
-                </div>
-            </div>
-
-            <div class="form-actions">
-                <button type="button" class="btn-cancel">Cancel</button>
-                <button type="submit" class="btn-submit">Submit Application</button>
-            </div>
-        </form>
+        <div class="form-actions">
+          <button type="button" class="btn-cancel">Cancel</button>
+          <button type="submit" class="btn-submit">Submit Application</button>
+        </div>
+      </form>
     </div>
 
-    <script src="../components/navbar.html" type="module"></script>
     <script src="script1.js" type="module"></script>
-</body>
+  </body>
 </html>

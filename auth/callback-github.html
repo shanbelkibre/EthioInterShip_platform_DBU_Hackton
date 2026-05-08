@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Login - Processing</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        text-align: center;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+      .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #333;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      h1 {
+        color: #333;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        color: #666;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="spinner"></div>
+      <h1>Processing GitHub Login...</h1>
+      <p>Please wait while we verify your credentials.</p>
+    </div>
+
+    <script src="oauth.js"></script>
+    <script>
+      // Get authorization code from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get("code");
+      const state = urlParams.get("state");
+      const error = urlParams.get("error");
+
+      if (error) {
+        document.body.innerHTML = `
+                <div style="text-align: center; color: white;">
+                    <h1>Login Failed</h1>
+                    <p>Error: ${error}</p>
+                    <a href="login.html" style="color: white; text-decoration: underline;">Try again</a>
+                </div>
+            `;
+      } else if (code && state === localStorage.getItem("oauth_state")) {
+        // In production, exchange code for access token on backend
+        // For now, simulate the profile data
+        const mockProfile = {
+          email: "user@github.com",
+          name: "Jane Developer",
+          avatar: "https://via.placeholder.com/150",
+          profileUrl: "https://github.com/janedev",
+        };
+
+        // Show role selection
+        const role = prompt(
+          "Select your role:\n1. student\n2. company\n(Type: student or company)",
+          "student",
+        );
+        if (role === "student" || role === "company") {
+          localStorage.setItem("selected_role", role);
+          handleOAuthCallback("github", mockProfile);
+        } else {
+          window.location.href = "login.html";
+        }
+      } else {
+        document.body.innerHTML = `
+                <div style="text-align: center; color: white;">
+                    <h1>Invalid State</h1>
+                    <p>Security validation failed.</p>
+                    <a href="login.html" style="color: white; text-decoration: underline;">Back to login</a>
+                </div>
+            `;
+      }
+    </script>
+  </body>
+</html>
