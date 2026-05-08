@@ -1,8 +1,8 @@
 /* Footer Styles - Simplified */
 .site-footer {
-  background: #1a1a1a;
+  background: #263642; /* company-style navy/charcoal */
   color: #fff;
-  padding: 3rem 0;
+  padding: 4rem 0;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -50,12 +50,12 @@
 
 .footer-links {
   display: flex;
-  justify-content: space-between;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  justify-content: space-around;
+  gap: 4rem;
+  margin-top: 2.25rem;
   text-align: left;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -63,13 +63,25 @@
 .footer-column {
   display: block;
   flex: 1 1 0;
-  min-width: 160px;
+  min-width: 180px;
+  padding-left: 1rem;
 }
 
 .footer-column h4 {
   color: #f3f6fb;
   font-size: 1rem;
   margin-bottom: 0.8rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.footer-column h4::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #07a0d8;
+  margin-top: 8px;
 }
 
 .footer-column ul {
@@ -160,7 +172,8 @@
 }
 
 .legal-links a {
-  display: none;
+  color: #bfc9cf;
+  text-decoration: none;
 }
 
 .footer-newsletter {
